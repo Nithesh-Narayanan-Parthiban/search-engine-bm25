@@ -65,6 +65,10 @@ def boost_scores(query: str, index: InvertedIndex, scores: defaultdict) -> None:
 
 def get_common_docs(query: str, index: InvertedIndex) -> set[int]:
     query_tokens = tokenize(query)
+    
+    if not query_tokens:  # add this
+        return set()
+    
     common = set(index.postings.get(query_tokens[0], {}).keys())
     for token in query_tokens:
         common &= set(index.postings.get(token, {}).keys())
@@ -86,6 +90,8 @@ def get_terms_positions(query: str, doc_id: str, index: InvertedIndex) -> set[in
     return terms_positions
 
 def match_found(terms_positions: list[set[int]]) -> bool:
+    if not terms_positions:  # add this
+        return False
     primary_positions = terms_positions[0]
     for i in range(1, len(terms_positions)):
         token_positions = terms_positions[i]

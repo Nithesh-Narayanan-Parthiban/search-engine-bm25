@@ -66,6 +66,21 @@ Separation of concerns allows:
 
 ---
 
+## Evaluation
+
+Benchmarked against NFCorpus from the [BEIR](https://github.com/beir-cellar/beir) evaluation suite — the standard benchmark for information retrieval systems.
+
+| Metric       | Score  |
+| ------------ | ------ |
+| nDCG@10      | 0.3082 |
+| MAP@10       | 0.1191 |
+| Recall@10    | 0.1493 |
+| Precision@10 | 0.2149 |
+
+Matches the published BM25 baseline (nDCG@10 ≈ 0.30–0.34).
+
+---
+
 ## Skills Demonstrated
 
 - Information Retrieval fundamentals
