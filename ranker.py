@@ -106,12 +106,6 @@ def full_phrase_match(query: str, index: InvertedIndex) -> list[int]:
 
     return results
 
-def partial_phrase_match(query: str, index: InvertedIndex) -> list[int]:
-    pass
-
-def proximity_boost(query: str, index: InvertedIndex) -> list[int]:
-    pass
-
 def matches(primary_positions: set[int], token_positions: set[int], distance: int = 1) -> set[int]:
     new_positions = {p + distance for p in primary_positions}
     new_positions &= token_positions
